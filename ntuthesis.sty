@@ -1,0 +1,52 @@
+\RequirePackage{xeCJK}
+\RequirePackage{fontspec}
+\setromanfont{Times New Roman}
+\setCJKmainfont{標楷體}
+
+\newcommand{\college}[2]{\def\@collegeen{#1}\def\@collegetw{#2}}
+\newcommand{\department}[2]{\def\@departmenten{#1}\def\@departmenttw{#2}}
+\newcommand{\thesistype}[2]{\def\@thesistypeen{#1}\def\@thesistypetw{#2}}
+\newcommand{\thesistitle}[2]{\def\@thesistitleen{#1}\def\@thesistitletw{#2}}
+\renewcommand{\author}[2]{\def\@authoren{#1}\def\@authortw{#2}}
+\newcommand{\advisor}[2]{\def\@advisoren{#1}\def\@advisortw{#2}}
+\renewcommand{\date}[2]{\def\@dateen{#1}\def\@datetw{#2}}
+
+\newcommand{\makecover}{
+	\begin{titlepage}
+		{
+			\fontsize{18}{27}\selectfont
+			\center{國立臺灣大學\@collegetw\@departmenttw}\\
+			\center{\@thesistypetw}\\
+		}
+		
+		{
+			\fontsize{14}{14}\selectfont
+			\center{\@departmenten}\\
+			\center{\@collegeen}\\
+		}
+		
+		{
+			\fontsize{16}{16}\selectfont
+			\center{National Taiwan University}\\
+			\center{\@thesistypeen}\\
+		}
+		
+		{
+			\fontsize{18}{27}\selectfont
+			~\\
+			\center{\@thesistitletw}\\
+			\center{\@thesistitleen}\\
+			~\\
+			~\\
+			\center{\@authortw}\\
+			\center{\@authoren}\\
+			~\\
+			\center{指導教授：\@advisortw\ 博士}\\
+			\center{Advisor: \@advisoren, Ph.D.}\\
+			~\\
+			\center{\@datetw}\\
+			\center{\@dateen}\\
+		}
+		
+	\end{titlepage}
+}
