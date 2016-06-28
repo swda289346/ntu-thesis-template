@@ -11,8 +11,13 @@
 \newcommand{\advisor}[2]{\def\@advisoren{#1}\def\@advisortw{#2}}
 \renewcommand{\date}[2]{\def\@dateen{#1}\def\@datetw{#2}}
 
+\let\baselinestretchdefault\baselinestretch
+\renewcommand{\baselinestretch}{2}
+
 \newcommand{\makecover}{
 	\begin{titlepage}
+		\let\baselinestretchsave\baselinestretch
+		\let\baselinestretch\baselinestretchdefault
 		{
 			\fontsize{18}{27}\selectfont
 			\center{國立臺灣大學\@collegetw\@departmenttw}\\
@@ -47,6 +52,6 @@
 			\center{\@datetw}\\
 			\center{\@dateen}\\
 		}
-		
+		\let\baselinestretch\baselinestretchsave
 	\end{titlepage}
 }
