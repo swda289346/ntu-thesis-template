@@ -1,5 +1,6 @@
 \RequirePackage{xeCJK}
 \RequirePackage{fontspec}
+\RequirePackage{ifthen}
 \setromanfont{Times New Roman}
 \setCJKmainfont{標楷體}
 
@@ -49,4 +50,20 @@
 		}
 		
 	\end{titlepage}
+}
+
+\newenvironment{abstract}[1][en]
+{
+	\ifthenelse{\equal{#1}{en}}
+	{
+		\def\@abstract{Abstract}
+	}
+	{
+		\def\@abstract{摘要}
+	}
+	\chapter*{\@abstract}
+	\addcontentsline{toc}{chapter}{\@abstract}
+}
+{
+	
 }
