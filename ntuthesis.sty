@@ -15,8 +15,11 @@
 \let\baselinestretchdefault\baselinestretch
 \renewcommand{\baselinestretch}{2}
 
+\newcommand{\coverpage}{Cover}
+
 \newcommand{\makecover}{
 	\begin{titlepage}
+		\let\thepage\coverpage
 		\let\baselinestretchsave\baselinestretch
 		\let\baselinestretch\baselinestretchdefault
 		{
@@ -55,6 +58,7 @@
 		}
 		\let\baselinestretch\baselinestretchsave
 	\end{titlepage}
+	\setcounter{page}{0}
 }
 
 \newenvironment{abstract}[1][en]
