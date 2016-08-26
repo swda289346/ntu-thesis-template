@@ -58,7 +58,9 @@
 		}
 		\let\baselinestretch\baselinestretchsave
 	\end{titlepage}
-	\setcounter{page}{0}
+	\if@twoside
+		\setcounter{page}{0}
+	\fi
 }
 
 \newenvironment{abstract}[1][en]
