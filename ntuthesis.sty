@@ -63,6 +63,16 @@
 	\fi
 }
 
+\newcommand{\makeacceptance}[1]{
+	\begingroup
+		\let\@makechapterhead\@gobble
+		\chapter{口試委員會審定書}
+		\begin{tikzpicture}[remember picture, overlay]
+			\node[anchor=south west, inner sep=0] at (current page.south west) {\includegraphics{#1}};
+		\end{tikzpicture}
+	\endgroup
+}
+
 \newenvironment{abstract}[1][en]
 {
 	\ifthenelse{\equal{#1}{en}}
