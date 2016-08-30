@@ -17,6 +17,17 @@
 
 \newcommand{\coverpage}{Cover}
 
+\AtBeginDocument
+{
+	\@ifpackageloaded{bookmark}
+	{
+		\def\@bookmark{true}
+	}
+	{
+		\def\@bookmark{false}
+	}
+}
+
 \newcommand{\makecover}{
 	\begin{titlepage}
 		\let\thepage\coverpage
@@ -61,6 +72,13 @@
 	\if@twoside
 		\setcounter{page}{0}
 	\fi
+	\ifthenelse{\equal{\@bookmark}{true}}
+	{
+		\bookmark[page=1, level=0]{\@thesistitleen}
+	}
+	{
+	
+	}
 }
 
 \newcommand{\makeacceptance}[1]{
