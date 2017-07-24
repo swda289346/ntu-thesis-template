@@ -4,6 +4,25 @@
 \setromanfont{Times New Roman}
 \setCJKmainfont{標楷體}
 
+\newif\ifntuthesis@hyphenation
+	\DeclareOption{hyphenation}
+	{
+		\ntuthesis@hyphenationtrue
+	}
+	\DeclareOption{nohyphenation}
+	{
+		\ntuthesis@hyphenationfalse
+	}
+	\ExecuteOptions{hyphenation}
+\ProcessOptions\relax
+
+\ifntuthesis@hyphenation
+
+\else
+	\hyphenpenalty=10000
+	\sloppy
+\fi
+
 \newcommand{\college}[2]{\def\@collegeen{#1}\def\@collegetw{#2}}
 \newcommand{\department}[2]{\def\@departmenten{#1}\def\@departmenttw{#2}}
 \newcommand{\thesistype}[2]{\def\@thesistypeen{#1}\def\@thesistypetw{#2}}
