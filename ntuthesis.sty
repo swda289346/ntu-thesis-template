@@ -1,8 +1,11 @@
 \RequirePackage{xeCJK}
 \RequirePackage{fontspec}
 \RequirePackage{ifthen}
+\RequirePackage{geometry}
 \setromanfont{Times New Roman}
 \setCJKmainfont[BoldFont=標楷體, BoldFeatures={FakeBold=5}]{標楷體}
+\geometry{a4paper, left=3cm, right=3cm, top=3cm, bottom=2cm}
+\pagestyle{plain}
 
 \newif\ifntuthesis@hyphenation
 	\DeclareOption{hyphenation}
