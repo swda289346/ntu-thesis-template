@@ -1,7 +1,9 @@
+\ProvidesPackage{ntuthesis}
 \RequirePackage{xeCJK}
 \RequirePackage{fontspec}
 \RequirePackage{ifthen}
 \RequirePackage{geometry}
+\RequirePackage{kvoptions}
 \setromanfont{Times New Roman}
 \def\@CJKmainfont{}
 \IfFontExistsTF{AR PL UKai TW}
@@ -31,17 +33,11 @@
 \geometry{a4paper, left=3cm, right=3cm, top=3cm, bottom=2cm}
 \pagestyle{plain}
 
-\newif\ifntuthesis@hyphenation
-	\DeclareOption{hyphenation}
-	{
-		\ntuthesis@hyphenationtrue
-	}
-	\DeclareOption{nohyphenation}
-	{
-		\ntuthesis@hyphenationfalse
-	}
-	\ExecuteOptions{hyphenation}
-\ProcessOptions\relax
+\SetupKeyvalOptions{family=ntuthesis,prefix=ntuthesis@}
+
+\DeclareBoolOption[true]{hyphenation}
+\DeclareComplementaryOption{nohyphenation}{hyphenation}
+\ProcessKeyvalOptions*
 
 \ifntuthesis@hyphenation
 
