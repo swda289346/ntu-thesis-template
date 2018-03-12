@@ -3,7 +3,31 @@
 \RequirePackage{ifthen}
 \RequirePackage{geometry}
 \setromanfont{Times New Roman}
-\setCJKmainfont[BoldFont=標楷體, BoldFeatures={FakeBold=5}]{標楷體}
+\def\@CJKmainfont{}
+\IfFontExistsTF{AR PL UKai TW}
+{
+	\setCJKmainfont[BoldFont=AR PL UKai TW, BoldFeatures={FakeBold=5}]{AR PL UKai TW}
+	\def\@CJKmainfont{AR PL UKai TW}
+}
+{
+
+}
+\IfFontExistsTF{標楷體}
+{
+	\setCJKmainfont[BoldFont=標楷體, BoldFeatures={FakeBold=5}]{標楷體}
+	\def\@CJKmainfont{標楷體}
+}
+{
+
+}
+
+\ifthenelse{\equal{\@CJKmainfont}{}}
+{
+	\PackageError{ntuthesis}{標楷體 not found}{Only 標楷體 and AR PL UKai TW are supported}
+}
+{
+
+}
 \geometry{a4paper, left=3cm, right=3cm, top=3cm, bottom=2cm}
 \pagestyle{plain}
 
