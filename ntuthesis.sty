@@ -37,6 +37,7 @@
 
 \DeclareBoolOption[true]{hyphenation}
 \DeclareComplementaryOption{nohyphenation}{hyphenation}
+\DeclareStringOption[]{watermark}[watermark.pdf]
 \ProcessKeyvalOptions*
 
 \ifntuthesis@hyphenation
@@ -45,6 +46,15 @@
 	\hyphenpenalty=10000
 	\sloppy
 \fi
+
+\ifthenelse{\equal{\ntuthesis@watermark}{}}
+{
+
+}
+{
+	\RequirePackage[pages=all]{background}
+	\backgroundsetup{scale=1,opacity=0.5,placement=top,position=current page.north east,anchor=below left,hshift=-2.5cm,vshift=-2.5cm,contents={\includegraphics[scale=0.5]{\ntuthesis@watermark}}}
+}
 
 \newcommand{\college}[2]{\def\@collegeen{#1}\def\@collegetw{#2}}
 \newcommand{\department}[2]{\def\@departmenten{#1}\def\@departmenttw{#2}}
