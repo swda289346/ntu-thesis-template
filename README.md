@@ -45,3 +45,9 @@
 ### 口試委員會審定書
 
 使用 `\makeacceptance{檔名}` 插入口試委員會審定書
+
+## 浮水印
+
+使用watermark選項插入浮水印
+
+例如 `\usepackage[watermark=ntu_watermark.pdf]{ntuthesis}`
